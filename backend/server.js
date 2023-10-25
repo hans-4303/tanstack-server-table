@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 // Connect to the MongoDB database using Mongoose
 
 const connectToDatabase = async () => {
-  await mongoose.connect('mongodb://0.0.0.0:27017/fullstack-tanstack');
+  await mongoose.connect('mongodb://0.0.0.0:27017/youtube-fullstack-tanstack');
   console.log('database connected');
 };
 
