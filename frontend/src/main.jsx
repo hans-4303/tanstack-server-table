@@ -1,30 +1,30 @@
-import ReactDOM from 'react-dom/client';
+import ReactDOM from "react-dom/client";
 
-import axios from 'axios';
-axios.defaults.baseURL = 'http://localhost:3000';
+import axios from "axios";
+axios.defaults.baseURL = "http://localhost:3000";
 
 // importing fonts
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
 
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-import Layout from './routes/layout';
-import Users from './routes/users';
-import { CssBaseline, GlobalStyles } from '@mui/material';
+import Layout from "./routes/layout";
+import Users from "./routes/users";
+import { CssBaseline, GlobalStyles } from "@mui/material";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <Layout />,
     children: [
       {
         index: true,
         element: <Users />,
         loader: async () => {
-          const { data } = await axios.get('/users');
+          const { data } = await axios.get("/users");
           return data.data;
         },
       },
@@ -32,10 +32,10 @@ const router = createBrowserRouter([
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <>
     <CssBaseline />
-    <GlobalStyles styles={{ body: { backgroundColor: '#eee' } }} />
+    <GlobalStyles styles={{ body: { backgroundColor: "#eee" } }} />
     <RouterProvider router={router} />
   </>
 );
